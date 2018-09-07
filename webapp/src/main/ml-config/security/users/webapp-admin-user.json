@@ -1,0 +1,5 @@
+{
+  "user-name" : "webapp-admin",
+  "password" : "webapp-admin",
+  "role" : [ "webapp-admin" ]
+}

@@ -1,0 +1,5 @@
+{
+  "role-name" : "webapp-internal",
+  "description" : "Internal role used for amping",
+  "role" : [ "webapp-writer" ]
+}
