@@ -9,7 +9,12 @@ declare function test:get($context as map:map,
     xdmp:set-response-content-type("text/html"),
     <html>
         <body>
-            <p>test</p>
+            <h3>test</h3>
+            <br></br>
+            {
+                for $x in doc("test.xml")//test
+                return <p>{data($x)}</p>
+            }
         </body>
     </html>
     }
