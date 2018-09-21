@@ -67,6 +67,10 @@ function create-author:put(
 		              <a:date-of-death>{data($input//date-of-death)}</a:date-of-death>
                 </a:author>
       return(
+        <response>
+          <q>"The record you want to insert: "</q>
+          <doc>{$x}</doc>
+        </response>,
         if(count(xdmp:validate($x, "type", xs:QName("sch:AuthorType"))//error:error) = 0)
         then(
           if(xdmp:exists(doc("C:\library\author.xml")))
@@ -74,15 +78,16 @@ function create-author:put(
             xdmp:node-insert-child(
             doc("C:\library\author.xml")/a:authors,
             $x),
-            "INSERTED"
+            <result>"INSERTED"</result>
           )
           else(xdmp:document-insert("C:\library\author.xml", 
           <sos>test</sos>),
           xdmp:node-insert-child(doc("C:\library\author.xml")/a:authors,
           $x),
-          "CREATED AND INSERTED")
+          <result>"CREATED AND INSERTED"</result>
+          )
         )
-        else("validation error")
+        else(<result>"validation error"</result>)
         )
     }
 };
