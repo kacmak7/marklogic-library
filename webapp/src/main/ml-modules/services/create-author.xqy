@@ -35,21 +35,40 @@ declare function create-author:get($context as map:map,
 declare
 %rapi:transaction-mode("update")
 function create-author:post(
-    $context as map:map,
-    $params  as map:map,
-    $input   as document-node()*
-    ) as document-node()? {
-    document{
-            xdmp:node-insert-child(
-            doc("C:\library\author.xml")/a:authors,
-            <a:author id="{map:get($params, "id")}">
-                <p:firstname>{map:get($params, "fn")}</p:firstname>
-                <p:lastname>{map:get($params, "ln")}</p:lastname>
-                <a:date-of-birth>{map:get($params, "dob")}</a:date-of-birth>
-                <a:date-of-death>{map:get($params, "dod")}</a:date-of-death>
-            </a:author>
-            )
-    }
+ $context as map:map,
+ $params  as map:map,
+ $input   as document-node()*
+ ) as document-node()? {
+ document{
+   let $x := <a:author id="{map:get($params, "id")}">
+               <p:firstname>{map:get($params, "fn")}</p:firstname>
+               <p:lastname>{map:get($params, "ln")}</p:lastname>
+               <a:date-of-birth>{map:get($params, "dob")}</a:date-of-birth>
+               <a:date-of-death>{map:get($params, "dod")}</a:date-of-death>
+             </a:author>
+   return(
+     if(count(xdmp:validate($x, "type", xs:QName("sch:AuthorType"))//error:error) = 0)
+     then(
+       if(xdmp:exists(doc("C:\library\author.xml")))
+         then(
+           xdmp:node-insert-child(
+           doc("C:\library\author.xml")/a:authors,
+           $x),
+           <result>"INSERTED"</result>
+         )
+       else(
+         xdmp:document-insert("C:\library\author.xml", 
+         <sos>test</sos>),
+         xdmp:node-insert-child(doc("C:\library\author.xml")/a:authors,
+         $x),
+         <result>"CREATED AND INSERTED"</result>
+       )
+     )
+     else(<result>validation error</result>)
+   )
+
+   
+ }
 };
 
 declare
@@ -88,6 +107,6 @@ function create-author:put(
           )
         )
         else(<result>"validation error"</result>)
-        )
+      )
     }
 };
