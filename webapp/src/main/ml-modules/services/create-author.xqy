@@ -2,6 +2,9 @@ xquery version "1.0-ml";
 
 module namespace create-author = "http://marklogic.com/rest-api/resource/create-author";
 
+import schema namespace sch = "http://www.demo.com/author" 
+at "author.xsd";
+
 declare namespace a = "http://www.demo.com/author";
 declare namespace p = "http://www.demo.com/person";
 declare namespace rapi = "http://marklogic.com/rest-api";
@@ -57,14 +60,29 @@ function create-author:put(
   $input   as document-node()*
   ) as document-node()? {
     document{
-      let $x := <a:author id="{$input//@id}">
+      let $x := <a:author id="{data($input//@id)}">
                   <p:firstname>{data($input//firstname)}</p:firstname>
                   <p:lastname>{data($input//lastname)}</p:lastname>
                   <a:date-of-birth>{data($input//date-of-birth)}</a:date-of-birth>
 		              <a:date-of-death>{data($input//date-of-death)}</a:date-of-death>
                 </a:author>
-      return xdmp:node-insert-child(
-        doc("C:\library\author.xml")/a:authors,
-        $x)
+      return(
+        if(count(xdmp:validate($x, "type", xs:QName("sch:AuthorType"))//error:error) = 0)
+        then(
+          if(xdmp:exists(doc("C:\library\author.xml")))
+          then(
+            xdmp:node-insert-child(
+            doc("C:\library\author.xml")/a:authors,
+            $x),
+            "INSERTED"
+          )
+          else(xdmp:document-insert("C:\library\author.xml", 
+          <sos>test</sos>),
+          xdmp:node-insert-child(doc("C:\library\author.xml")/a:authors,
+          $x),
+          "CREATED AND INSERTED")
+        )
+        else("validation error")
+        )
     }
 };
