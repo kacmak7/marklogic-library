@@ -66,8 +66,6 @@ function create-author:post(
      )
      else(<result>validation error</result>)
    )
-
-   
  }
 };
 
