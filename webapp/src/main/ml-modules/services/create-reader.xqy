@@ -134,7 +134,7 @@ function create-reader:post(
  }
 };
 
-declare
+(:declare
 %rapi:transaction-mode("update")
 function create-reader:put(
   $context as map:map,
@@ -154,7 +154,7 @@ function create-reader:put(
           then(
             xdmp:node-insert-child(
             doc("C:\library\reader.xml")/r:readers,
-            $x/*),
+            $x),
             <result>"INSERTED"</result>
           )
           else(xdmp:document-insert("C:\library\reader.xml", 
@@ -167,4 +167,4 @@ function create-reader:put(
         else(<result>"validation error"</result>)
       )
     }
-};
+};:)
