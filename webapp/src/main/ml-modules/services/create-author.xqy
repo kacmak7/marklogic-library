@@ -98,8 +98,6 @@ function create-author:put(
             <result>"INSERTED"</result>
           )
           else(xdmp:document-insert("C:\library\author.xml", 
-          <sos>test</sos>),
-          xdmp:node-insert-child(doc("C:\library\author.xml")/a:authors,
           $x),
           <result>"CREATED AND INSERTED"</result>
           )

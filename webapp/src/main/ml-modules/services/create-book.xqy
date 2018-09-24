@@ -98,8 +98,6 @@ function create-book:put(
             )
             else(
                 xdmp:document-insert("C:\library\book.xml", 
-                <boook>test</boook>),
-                xdmp:node-insert-child(doc("C:\library\book.xml")/b:books,
                 $x),
             <result>"CREATED AND INSERTED"</result>
             )
