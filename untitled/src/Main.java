@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String args[]) {
@@ -20,6 +21,12 @@ public class Main {
         //return i <= 1 ? builder.toString() : null;
         System.out.println(builder.toString());
         System.out.println(file.getName());
+        System.out.println();
+
+        File dir = new File("C:\\Users\\Kacper Makuch\\Documents\\library");
+        System.out.println(Arrays.toString(dir.listFiles()));
+        System.out.println(dir.listFiles().length);
+        System.out.println(dir.listFiles()[1]);
     }
 
 }
