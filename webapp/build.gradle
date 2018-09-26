@@ -1,4 +1,33 @@
 plugins {
   id "net.saliman.properties" version "1.4.6"
   id "com.marklogic.ml-gradle" version "3.3.0"
+
+  id "java"
+  id "application"
 }
+
+mainClassName = 'App'
+
+dependencies {
+    compile 'com.marklogic:marklogic-spring-batch-core:1.+'
+}
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+}
+
+task runMainJob(type: JavaExec) {
+     main = 'com.marklogic.spring.batch.core.launch.support.CommandLineJobRunner'
+     classpath = sourceSets.test.runtimeClasspath
+     args = ["--job_path", "YourJobConfig",
+        "--job_id", "yourJob",
+        "--output_collections", "yourJob",
+        "--chunk_size", "50",
+        "--thread_count", "1",
+        "--next"]
+ }
+
+ mlPostDeploy.dependsOn runMainJob
