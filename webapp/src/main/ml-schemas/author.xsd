@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Studio 2018 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:a="http://www.demo.com/author" xmlns:p="http://www.demo.com/person" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.demo.com/author" elementFormDefault="qualified">
+
+	<xs:import namespace="http://www.demo.com/person" schemaLocation="person.xsd"/>
+	
+	<xs:complexType name="AuthorType">
+		<xs:complexContent>
+			<xs:extension base="p:PersonType">
+				<xs:sequence>
+					<xs:element name="date-of-birth" type="xs:date"/>
+					<xs:element name="date-of-death" type="xs:date" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:element name="author" type="a:AuthorType"/>
+	
+	<xs:complexType name="AuthorsType">
+		<xs:sequence>
+			<xs:element ref="a:author" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="authors" type="a:AuthorsType"/>
+	
+</xs:schema>

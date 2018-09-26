@@ -3,7 +3,7 @@ xquery version "1.0-ml";
 module namespace create-book = "http://marklogic.com/rest-api/resource/create-book";
 
 import schema namespace sch = "http://www.demo.com"
-at "book.xsd";
+at "/book.xsd";
 
 declare namespace b = "http://www.demo.com";
 declare namespace rapi = "http://marklogic.com/rest-api";

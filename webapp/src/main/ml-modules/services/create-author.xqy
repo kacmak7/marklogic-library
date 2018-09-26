@@ -3,7 +3,7 @@ xquery version "1.0-ml";
 module namespace create-author = "http://marklogic.com/rest-api/resource/create-author";
 
 import schema namespace sch = "http://www.demo.com/author" 
-at "author.xsd";
+at "/author.xsd";
 
 declare namespace a = "http://www.demo.com/author";
 declare namespace p = "http://www.demo.com/person";

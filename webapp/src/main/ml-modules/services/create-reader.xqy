@@ -3,7 +3,7 @@ xquery version "1.0-ml";
 module namespace create-reader = "http://marklogic.com/rest-api/resource/create-reader";
 
 import schema namespace sch = "http://www.demo.com/reader" 
-at "reader.xsd";
+at "/reader.xsd";
 
 declare namespace r = "http://www.demo.com/reader";
 declare namespace p = "http://www.demo.com/person";
