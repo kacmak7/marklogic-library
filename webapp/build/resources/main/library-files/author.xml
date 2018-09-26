@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<a:authors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.demo.com/author" xmlns:a="http://www.demo.com/author" xmlns:p="http://www.demo.com/person" xsi:schemaLocation="http://www.demo.com/author file:///C:/Users/Kacper%20Makuch/Desktop/makuchk/library/author.xsd">
+	<a:author id="1">
+		<p:firstname>William</p:firstname>
+		<p:lastname>Shakespeare</p:lastname>
+		<a:date-of-birth>1564-04-23</a:date-of-birth>
+		<a:date-of-death>1616-04-23</a:date-of-death>
+	</a:author>
+	<a:author id="2">
+		<p:firstname>J.K.</p:firstname>
+		<p:lastname>Rowling</p:lastname>
+		<a:date-of-birth>1965-07-31</a:date-of-birth>
+	</a:author>
+	<a:author id="3">
+		<p:firstname>Paulo</p:firstname>
+		<p:lastname>Coelho</p:lastname>
+		<a:date-of-birth>1947-08-24</a:date-of-birth>
+	</a:author>
+	<a:author id="4">
+		<p:firstname>Stephen</p:firstname>
+		<p:lastname>King</p:lastname>
+		<a:date-of-birth>1947-09-21</a:date-of-birth>
+	</a:author>
+	<a:author id="5">
+		<p:firstname>Tom</p:firstname>
+		<p:lastname>Clancy</p:lastname>
+		<a:date-of-birth>1947-04-12</a:date-of-birth>
+		<a:date-of-death>2013-10-01</a:date-of-death>
+	</a:author>
+	<a:author id="6">
+		<p:firstname>Napoleon</p:firstname>
+		<p:lastname>Hill</p:lastname>
+		<a:date-of-birth>1883-09-26</a:date-of-birth>
+		<a:date-of-death>1970-11-08</a:date-of-death>
+	</a:author>
+</a:authors>

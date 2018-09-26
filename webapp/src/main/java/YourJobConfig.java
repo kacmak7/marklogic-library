@@ -107,35 +107,26 @@ public class YourJobConfig {
 
         DatabaseClient databaseClient = databaseClientProvider.getDatabaseClient();
 
-        ItemReader<String> reader = new ItemReader<String>() {
+        ItemReader<File> reader = new ItemReader<File>() {
             int i = 0;
 
             @Override
-            public String read() throws Exception {
-                String path = "C:\\Users\\Kacper Makuch\\Documents\\library\\book.xml";
-                File file = new File(path);
-                StringBuilder builder = new StringBuilder();
-                try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-                    String line;
-                    while((line = br.readLine()) != null) {
-                        builder.append(line).append("\n");
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                //return builder.toString();
+            public File read() throws Exception {
+                ClassLoader cl = getClass().getClassLoader();
+                File file = new File(cl.getResource("library-files/author.xml").getFile());
+                
                 System.out.println(i);
                 ++i;
-                return i <= 1 ? builder.toString() : null;
+                return i <= 1 ? file : null;
             }
         };
 
         //The ItemProcessor is typically customized for your Job.  An anoymous class is a nice way to instantiate but
         //if it is a reusable component instantiate in its own class
-        MarkLogicItemProcessor<String> processor = new MarkLogicItemProcessor<String>() {
+        MarkLogicItemProcessor<File> processor = new MarkLogicItemProcessor<File>() {
 
             @Override
-            public DocumentWriteOperation process(String item) throws Exception {
+            public DocumentWriteOperation process(File item) throws Exception {
                 DocumentWriteOperation dwo = new DocumentWriteOperation() {
 
                     @Override
@@ -145,7 +136,7 @@ public class YourJobConfig {
 
                     @Override
                     public String getUri() {
-                        return "/" + UUID.randomUUID().toString() + ".xml";
+                        return "/" + item.getName();
                     }
 
                     @Override
@@ -157,7 +148,16 @@ public class YourJobConfig {
 
                     @Override
                     public AbstractWriteHandle getContent() {
-                        return new StringHandle(item);
+                        StringBuilder builder = new StringBuilder();
+                        try (BufferedReader br = new BufferedReader(new FileReader(item))) {
+                            String line;
+                            while((line = br.readLine()) != null) {
+                                builder.append(line).append("\n");
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        return new StringHandle(builder.toString());
                     }
 
                     @Override
@@ -192,7 +192,7 @@ public class YourJobConfig {
         };
 
         return stepBuilderFactory.get("step1")
-                .<String, DocumentWriteOperation>chunk(chunkSize)
+                .<File, DocumentWriteOperation>chunk(chunkSize)
                 .reader(reader)
                 .processor(processor)
                 .writer(writer)

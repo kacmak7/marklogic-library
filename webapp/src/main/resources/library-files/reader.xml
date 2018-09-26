@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<r:readers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.demo.com/reader" xmlns:r="http://www.demo.com/reader" xmlns:p="http://www.demo.com/person" xsi:schemaLocation="http://www.demo.com/reader file:///C:/Users/Kacper%20Makuch/Desktop/makuchk/library/reader.xsd">
+	<r:reader id="1">
+		<p:firstname>John</p:firstname>
+		<p:lastname>Burg</p:lastname>
+		<p:age>45</p:age>
+		<r:bookId>32</r:bookId>
+		<r:bookId>57</r:bookId>
+	</r:reader>
+	<r:reader id="2">
+		<p:firstname>Steven</p:firstname>
+		<p:lastname>Pick</p:lastname>
+		<p:age>29</p:age>
+		<r:bookId>27</r:bookId>
+		<r:bookId>12</r:bookId>
+		<r:bookId>91</r:bookId>
+	</r:reader>
+	<r:reader id="3">
+		<!--warning-->
+		<p:firstname>Peter</p:firstname>
+		<p:lastname>Stock</p:lastname>
+		<p:age>21</p:age>
+		<r:bookId>42</r:bookId>
+		<r:bookId>1</r:bookId>
+		<r:bookId>9</r:bookId>
+		<r:bookId>98</r:bookId>
+		<r:bookId>60</r:bookId>
+	</r:reader>
+	<r:reader id="4">
+		<p:firstname>Robert</p:firstname>
+		<p:lastname>Neat</p:lastname>
+		<p:age>32</p:age>
+		<r:bookId>87</r:bookId>
+		<r:bookId>23</r:bookId>
+		<r:bookId>11</r:bookId>
+		<r:bookId>7</r:bookId>
+		<r:bookId>55</r:bookId>
+	</r:reader>
+	<r:reader id="5">
+		<p:firstname>John</p:firstname>
+		<p:lastname>Pale</p:lastname>
+		<p:age>36</p:age>
+		<r:bookId>81</r:bookId>
+	</r:reader>
+	<r:reader id="6">
+		<p:firstname>Josh</p:firstname>
+		<p:lastname>Ericson</p:lastname>
+		<p:age>46</p:age>
+		<r:bookId>8</r:bookId>
+	</r:reader>
+	<r:reader id="7">
+		<p:firstname>Patrick</p:firstname>
+		<p:lastname>Evans</p:lastname>
+		<p:age>50</p:age>
+	</r:reader>
+	<r:reader id="8">
+		<p:firstname>Paul</p:firstname>
+		<p:lastname>Navy</p:lastname>
+		<p:age>23</p:age>
+		<r:bookId>69</r:bookId>
+		<r:bookId>78</r:bookId>
+	</r:reader>
+	<r:reader id="9">
+		<p:firstname>Rob</p:firstname>
+		<p:lastname>Rockwell</p:lastname>
+		<p:age>30</p:age>
+		<r:bookId>47</r:bookId>
+	</r:reader>
+	<r:reader id="10">
+		<p:firstname>Luis</p:firstname>
+		<p:lastname>Pocket</p:lastname>
+		<p:age>52</p:age>
+		<r:bookId>10</r:bookId>
+		<r:bookId>83</r:bookId>
+		<r:bookId>2</r:bookId>
+	</r:reader>
+</r:readers>

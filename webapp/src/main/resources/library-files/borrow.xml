@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bb:borrows xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.demo.com/borrow" xmlns:bb="http://www.demo.com/borrow" xmlns:p="http://www.demo.com/person" xsi:schemaLocation="http://www.demo.com/borrow">
+
+	<bb:borrow id="1">
+		<bb:bookId>3</bb:bookId>
+		<bb:readerId>2</bb:readerId>
+	</bb:borrow>
+	<bb:borrow id="2">
+		<bb:bookId>3</bb:bookId>
+		<bb:readerId>14</bb:readerId>
+	</bb:borrow>
+	<bb:borrow id="3">
+		<bb:bookId>1</bb:bookId>
+		<bb:readerId>10</bb:readerId>
+	</bb:borrow>
+	<bb:borrow id="4">
+		<bb:bookId>2</bb:bookId>
+		<bb:readerId>1</bb:readerId>
+	</bb:borrow>
+	<bb:borrow id="5">
+		<bb:bookId>1</bb:bookId>
+		<bb:readerId>9</bb:readerId>
+	</bb:borrow>
+	<bb:borrow id="6">
+		<bb:bookId>6</bb:bookId>
+		<bb:readerId>5</bb:readerId>
+	</bb:borrow>
+	<bb:borrow id="7">
+		<bb:bookId>1</bb:bookId>
+		<bb:readerId>15</bb:readerId>
+	</bb:borrow>
+	<bb:borrow id="8">
+		<bb:bookId>5</bb:bookId>
+		<bb:readerId>9</bb:readerId>
+	</bb:borrow>
+	<bb:borrow id="9">
+		<bb:bookId>16</bb:bookId>
+		<bb:readerId>8</bb:readerId>
+	</bb:borrow>
+
+</bb:borrows>

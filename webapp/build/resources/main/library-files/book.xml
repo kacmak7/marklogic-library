@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<b:books xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.demo.com" xmlns:b="http://www.demo.com" xsi:schemaLocation="http://www.demo.com file:///C:/Users/Kacper%20Makuch/Desktop/makuchk/library/book.xsd">
+	<b:book id="1">
+		<name>Hamlet</name>
+		<date>2001-05-04</date>
+		<authorId>1</authorId>
+		<availability>false</availability>
+	</b:book>
+	<b:book id="2">
+		<name>Macbeth</name>
+		<date>2000-12-13</date>
+		<authorId>1</authorId>
+		<availability>false</availability>
+	</b:book>
+	<b:book id="3">
+		<name>Harry Potter and the Sorcerer's Stone</name>
+		<date>2005-04-29</date>
+		<authorId>2</authorId>
+		<availability>true</availability>
+	</b:book>
+	<b:book id="4">
+		<name>The Long Walk</name>
+		<date>2018-07-01</date>
+		<authorId>4</authorId>
+		<availability>true</availability>
+	</b:book>
+	<b:book id="5">
+		<name>Misery</name>
+		<date>2018-01-31</date>
+		<authorId>4</authorId>
+		<availability>true</availability>
+	</b:book>
+	<b:book id="6">
+		<name>Think and Grow Rich</name>
+		<date>2004-09-10</date>
+		<authorId>6</authorId>
+		<availability>true</availability>
+	</b:book>
+	<b:book id="7">
+		<name>The Law of Success</name>
+		<date>1982-05-09</date>
+		<authorId>6</authorId>
+		<availability>false</availability>
+	</b:book>
+	<b:book id="8">
+		<name>Patriot Games</name>
+		<date>1995-10-21</date>
+		<authorId>5</authorId>
+		<availability>false</availability>
+	</b:book>
+	<b:book id="9">
+		<name>The Sum of All Fears</name>
+		<date>1992-09-19</date>
+		<authorId>5</authorId>
+		<availability>false</availability>
+	</b:book>
+	<b:book id="10">
+		<name>The Alchemist</name>
+		<date>2017-02-20</date>
+		<authorId>3</authorId>
+		<availability>false</availability>
+	</b:book>
+	<b:book id="11">
+		<name>Hamlet</name>
+		<date>1994-06-01</date>
+		<authorId>1</authorId>
+		<availability>false</availability>
+	</b:book>
+	<b:book id="12">
+		<name>Measure for Measure</name>
+		<date>1990-03-23</date>
+		<authorId>1</authorId>
+		<availability>false</availability>
+	</b:book>
+	<b:book id="13">
+		<name>Hamlet</name>
+		<date>1989-05-05</date>
+		<authorId>1</authorId>
+		<availability>true</availability>
+	</b:book>
+	<b:book id="14">
+		<name>Hamlet</name>
+		<date>1999-05-30</date>
+		<authorId>1</authorId>
+		<availability>true</availability>
+	</b:book>
+	<b:book id="15">
+		<name>The Law of Success</name>
+		<date>2004-11-26</date>
+		<authorId>6</authorId>
+		<availability>true</availability>
+	</b:book>
+	<b:book id="16">
+		<name>Romeo and Juliet</name>
+		<date>1997-02-08</date>
+		<authorId>1</authorId>
+		<availability>true</availability>
+	</b:book>
+	<b:book id="17">
+		<name>The Alchemist</name>
+		<date>2009-08-21</date>
+		<authorId>3</authorId>
+		<availability>true</availability>
+	</b:book>
+</b:books>
