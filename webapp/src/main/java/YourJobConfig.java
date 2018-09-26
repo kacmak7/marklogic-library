@@ -23,6 +23,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 
+import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.UUID;
 
 /**
@@ -108,8 +112,21 @@ public class YourJobConfig {
 
             @Override
             public String read() throws Exception {
-                i++;
-                return i <= 1 ? "hello" : null;
+                String path = "C:\\Users\\Kacper Makuch\\Documents\\library\\book.xml";
+                File file = new File(path);
+                StringBuilder builder = new StringBuilder();
+                try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                    String line;
+                    while((line = br.readLine()) != null) {
+                        builder.append(line).append("\n");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                //return builder.toString();
+                System.out.println(i);
+                ++i;
+                return i <= 1 ? builder.toString() : null;
             }
         };
 
@@ -128,7 +145,7 @@ public class YourJobConfig {
 
                     @Override
                     public String getUri() {
-                        return UUID.randomUUID().toString() + ".json";
+                        return "/" + UUID.randomUUID().toString() + ".xml";
                     }
 
                     @Override
@@ -140,7 +157,7 @@ public class YourJobConfig {
 
                     @Override
                     public AbstractWriteHandle getContent() {
-                        return new StringHandle(String.format("{ \"name\" : \"%s\" }", item));
+                        return new StringHandle(item);
                     }
 
                     @Override
