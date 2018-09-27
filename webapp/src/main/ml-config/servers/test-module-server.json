@@ -1,0 +1,13 @@
+{
+    "server-name": "webapp-test-modules",
+    "server-type": "http",
+    "root": "/",
+    "group-name": "Default",
+    "port": "8092",
+    "modules-database": "webapp-modules",
+    "content-database": "webapp-modules",
+    "enabled": "true",
+    "error-handler": "/MarkLogic/rest-api/error-handler.xqy",
+    "url-rewriter": "/MarkLogic/rest-api/rewriter.xml",
+    "rewrite-resolves-globally": true
+}

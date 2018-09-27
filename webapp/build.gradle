@@ -29,5 +29,16 @@ task runMainJob(type: JavaExec) {
         "--thread_count", "1",
         "--next"]
  }
+ 
+ task runDeployTest(type: JavaExec) {
+     main = 'com.marklogic.spring.batch.core.launch.support.CommandLineJobRunner'
+     classpath = sourceSets.test.runtimeClasspath
+     args = ["--job_path", "com.release11.library.config.TestConfig",
+        "--job_id", "deployTest",
+        "--output_collections", "deployTest",
+        "--chunk_size", "50",
+        "--thread_count", "1",
+        "--next"]
+ }
 
  mlPostDeploy.dependsOn runMainJob
