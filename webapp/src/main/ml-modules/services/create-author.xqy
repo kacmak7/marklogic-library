@@ -9,9 +9,13 @@ declare namespace a = "http://www.demo.com/author";
 declare namespace p = "http://www.demo.com/person";
 declare namespace rapi = "http://marklogic.com/rest-api";
 
+import module namespace security = "http://marklogic.com/rest-api/resource/author-get-privilege" 
+at "/author-get-privilege.xqy";
+
 declare function create-author:get($context as map:map,
                             $params as map:map
                             ) as document-node()?{
+    security:security-check(xdmp:get-current-user(), $security:get-privilege),
     document{
     xdmp:set-response-content-type("text/html"),
     <html>
@@ -39,7 +43,8 @@ function create-author:post(
  $params  as map:map,
  $input   as document-node()*
  ) as document-node()? {
- document{
+   security:security-check(xdmp:get-current-user(), $security:post-privilege),
+  document{
    let $x := <a:author id="{map:get($params, "id")}">
                <p:firstname>{map:get($params, "fn")}</p:firstname>
                <p:lastname>{map:get($params, "ln")}</p:lastname>
@@ -76,6 +81,7 @@ function create-author:put(
   $params  as map:map,
   $input   as document-node()*
   ) as document-node()? {
+    security:security-check(xdmp:get-current-user(), $security:put-privilege),
     document{
       let $x := <a:author id="{data($input//@id)}">
                   <p:firstname>{data($input//firstname)}</p:firstname>
@@ -90,14 +96,14 @@ function create-author:put(
         </response>,
         if(count(xdmp:validate($x, "type", xs:QName("sch:AuthorType"))//error:error) = 0)
         then(
-          if(xdmp:exists(doc("C:\library\author.xml")))
+          if(xdmp:exists(doc("/author.xml")))
           then(
             xdmp:node-insert-child(
-            doc("C:\library\author.xml")/a:authors,
+            doc("/author.xml")/a:authors,
             $x),
             <result>"INSERTED"</result>
           )
-          else(xdmp:document-insert("C:\library\author.xml", 
+          else(xdmp:document-insert("/author.xml", 
           $x),
           <result>"CREATED AND INSERTED"</result>
           )

@@ -1,0 +1,5 @@
+{
+    "role-name" : "webapp-put-role",
+    "description" : "Role with access to put method",
+    "role" : [ ]
+  }

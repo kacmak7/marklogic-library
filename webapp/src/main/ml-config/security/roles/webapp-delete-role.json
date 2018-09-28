@@ -1,0 +1,5 @@
+{
+    "role-name" : "webapp-delete-role",
+    "description" : "Role with access to delete method",
+    "role" : [ ]
+    }

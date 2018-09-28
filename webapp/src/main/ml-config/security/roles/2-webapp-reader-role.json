@@ -1,5 +1,5 @@
 {
   "role-name" : "webapp-reader",
   "description" : "Can view documents, but not edit",
-  "role" : [ "rest-reader", "webapp-nobody" ]
+  "role" : [ "rest-reader", "webapp-nobody", "webapp-get-role" ]
 }

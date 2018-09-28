@@ -1,0 +1,5 @@
+{
+"role-name" : "webapp-post-role",
+"description" : "Role with access to post method",
+"role" : [ ]
+}

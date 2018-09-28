@@ -12,8 +12,8 @@ declare function post-results($url as xs:string, $data as xs:string)
 
 declare function get-results($url as xs:string)
 {
-    xdmp:http-get($url, <options xmlns="xdmp:http"><authentication method = "digest"><username>admin</username>
-                    <password>mann</password></authentication>
+    xdmp:http-get($url, <options xmlns="xdmp:http"><authentication method = "digest"><username>webapp-reader</username>
+                    <password>webapp-reader</password></authentication>
                     <headers><content-type>application/xml</content-type></headers>
                     </options>)
                     

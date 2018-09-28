@@ -5,7 +5,7 @@ import module namespace  utils = "http://release11/utils" at "/xray/src/utilis.x
 import module namespace assert = "http://github.com/robwhitby/xray/assertions" at "/xray/src/assertions.xqy";
 declare namespace res = "xdmp:http";
 
-declare %test:case function get-create-author-form-with-id()
+declare %test:case function get-create-author-form()
 {
     let $results := utils:get-results("http://localhost:8090/LATEST/resources/create-author")
     return (assert:equal(utils:get-code($results), "200"))

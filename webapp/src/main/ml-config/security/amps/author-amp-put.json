@@ -1,0 +1,7 @@
+{
+    "namespace": "http://marklogic.com/rest-api/resource/create-author",
+    "local-name": "put",
+    "document-uri": "/marklogic.rest.resource/create-author/assets/resource.xqy",
+    "modules-database": "webapp-modules",
+    "role": ["admin"]
+}

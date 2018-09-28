@@ -1,0 +1,5 @@
+{
+    "role-name" : "webapp-get-role",
+    "description" : "Role with access to get method",
+    "role" : [ ]
+  }
