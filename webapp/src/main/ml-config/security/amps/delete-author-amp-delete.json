@@ -1,7 +1,0 @@
-{
-    "namespace": "http://marklogic.com/rest-api/resource/create-author",
-    "local-name": "delete",
-    "document-uri": "/marklogic.rest.resource/create-author/assets/resource.xqy",
-    "modules-database": "webapp-modules",
-    "role": ["admin"]
-}

@@ -54,17 +54,17 @@ function create-author:post(
    return(
      if(count(xdmp:validate($x, "type", xs:QName("sch:AuthorType"))//error:error) = 0)
      then(
-       if(xdmp:exists(doc("C:\library\author.xml")))
+       if(xdmp:exists(doc("/author.xml")))
          then(
            xdmp:node-insert-child(
-           doc("C:\library\author.xml")/a:authors,
+           doc("/author.xml")/a:authors,
            $x),
            <result>"INSERTED"</result>
          )
        else(
-         xdmp:document-insert("C:\library\author.xml", 
+         xdmp:document-insert("/author.xml", 
          <sos>test</sos>),
-         xdmp:node-insert-child(doc("C:\library\author.xml")/a:authors,
+         xdmp:node-insert-child(doc("/author.xml")/a:authors,
          $x),
          <result>"CREATED AND INSERTED"</result>
        )
@@ -104,7 +104,7 @@ function create-author:put(
             <result>"INSERTED"</result>
           )
           else(xdmp:document-insert("/author.xml", 
-          $x),
+          <a:authors>{$x}</a:authors>),
           <result>"CREATED AND INSERTED"</result>
           )
         )
