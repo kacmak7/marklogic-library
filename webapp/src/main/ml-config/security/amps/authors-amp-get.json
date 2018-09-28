@@ -1,0 +1,7 @@
+{
+    "namespace": "http://marklogic.com/rest-api/resource/authors",
+    "local-name": "get",
+    "document-uri": "/marklogic.rest.resource/authors/assets/resource.xqy",
+    "modules-database": "webapp-modules",
+    "role": ["admin"]
+}

@@ -1,7 +1,7 @@
 {
   "role-name" : "webapp-writer",
   "description" : "Can read and write documents",
-  "role" : [ "rest-writer", "webapp-reader", "webapp-put-role" ],
+  "role" : [ "rest-writer", "webapp-reader", "webapp-put-role", "webapp-post-role" ],
   "privilege" : [ {
     "privilege-name" : "any-uri",
     "action" : "http://marklogic.com/xdmp/privileges/any-uri",
