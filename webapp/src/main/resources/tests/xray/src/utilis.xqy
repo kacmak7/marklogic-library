@@ -18,6 +18,16 @@ declare function get-results($url as xs:string)
                     </options>)
                     
 };
+
+declare function delete-results($url as xs:string)
+{
+    xdmp:http-get($url, <options xmlns="xdmp:http"><authentication method = "digest"><username>webapp-writer</username>
+                    <password>webapp-writer</password></authentication>
+                    <headers><content-type>application/xml</content-type></headers>
+                    </options>)
+                    
+};
+
 declare function get-code($result) as xs:string 
 {
     let $status := get-succes-code($result)
