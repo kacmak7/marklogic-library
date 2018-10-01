@@ -27,7 +27,7 @@ declare function create-reader:get($context as map:map,
             BookId: <input type="text" name="rs:bId"></input>
             BookId: <input type="text" name="rs:bId1"></input>
             BookId: <input type="text" name="rs:bId2"></input>
-            BookId: <input type="text" name="rs:bId3"></input>
+            BookId: <input type="text" name="rs:bId3"></input>c
             BookId: <input type="text" name="rs:bId4"></input>
             BookId: <input type="text" name="rs:bId5"></input>
             BookId: <input type="text" name="rs:bId6"></input>
@@ -113,17 +113,17 @@ function create-reader:post(
    return(
      if(count(xdmp:validate($x, "type", xs:QName("sch:ReaderType"))//error:error) = 0)
      then(
-       if(xdmp:exists(doc("C:\library\reader.xml")))
+       if(xdmp:exists(doc("/reader.xml")))
          then(
            xdmp:node-insert-child(
-           doc("C:\library\reader.xml")/r:readers,
+           doc("/reader.xml")/r:readers,
            $x),
            <result>"INSERTED"</result>
          )
        else(
-         xdmp:document-insert("C:\library\reader.xml", 
+         xdmp:document-insert("/reader.xml", 
          <sos>test</sos>),
-         xdmp:node-insert-child(doc("C:\library\reader.xml")/r:readers,
+         xdmp:node-insert-child(doc("/reader.xml")/r:readers,
          $x),
          <result>"CREATED AND INSERTED"</result>
        )
@@ -150,16 +150,16 @@ function create-reader:put(
         </response>,
         if(count(xdmp:validate($x, "type", xs:QName("sch:ReaderType"))//error:error) = 0)
         then(
-          if(xdmp:exists(doc("C:\library\reader.xml")))
+          if(xdmp:exists(doc("/reader.xml")))
           then(
             xdmp:node-insert-child(
-            doc("C:\library\reader.xml")/r:readers,
+            doc("/reader.xml")/r:readers,
             $x),
             <result>"INSERTED"</result>
           )
-          else(xdmp:document-insert("C:\library\reader.xml", 
+          else(xdmp:document-insert("/reader.xml", 
           <sos>test</sos>),
-          xdmp:node-insert-child(doc("C:\library\reader.xml")/r:readers,
+          xdmp:node-insert-child(doc("/reader.xml")/r:readers,
           $x),
           <result>"CREATED AND INSERTED"</result>
           )

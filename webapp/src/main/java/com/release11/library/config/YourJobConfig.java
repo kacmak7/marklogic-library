@@ -116,7 +116,7 @@ public class YourJobConfig {
                 File dir = new File(cl.getResource("library-files/").getFile());
                 System.out.println(i);
                 ++i;
-                return i < dir.listFiles().length ? dir.listFiles()[i] : null;
+                return i < dir.listFiles().length ? dir.listFiles()[i-1] : null;
             }
         };
 

@@ -22,7 +22,7 @@ declare function borrows:get($context as map:map,
             <th>Reader ID</th>
           </tr>
           {
-            for $borrow in doc("C:\library\borrow.xml")//bb:borrow
+            for $borrow in doc("/borrow.xml")//bb:borrow
             return
               <tr>
                 <td>{data($borrow/@id)}</td>

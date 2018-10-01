@@ -25,7 +25,7 @@ declare function readers:get($context as map:map,
             <th>Book ID</th>
           </tr>
           {
-            for $reader in doc("C:\library\reader.xml")//r:reader
+            for $reader in doc("/reader.xml")//r:reader
             return
               <tr>
                 <td>{data($reader/@id)}</td>

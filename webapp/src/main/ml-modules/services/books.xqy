@@ -25,7 +25,7 @@ declare function books:get($context as map:map,
             <th>Availability</th>
           </tr>
           {
-            for $book in doc("C:\library\book.xml")//b:book
+            for $book in doc("/book.xml")//b:book
             return
               <tr>
                 <td>{data($book/@id)}</td>

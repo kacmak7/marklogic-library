@@ -48,17 +48,17 @@ function create-book:post(
    return(
      if(count(xdmp:validate($x, "type", xs:QName("sch:BookType"))//error:error) = 0)
      then(
-       if(xdmp:exists(doc("C:\library\book.xml")))
+       if(xdmp:exists(doc("/book.xml")))
          then(
            xdmp:node-insert-child(
-           doc("C:\library\book.xml")/b:books,
+           doc("/book.xml")/b:books,
            $x),
            <result>"INSERTED"</result>
          )
-       else(
-         xdmp:document-insert("C:\library\book.xml", 
+        else(
+         xdmp:document-insert("/book.xml", 
          <boook>test</boook>),
-         xdmp:node-insert-child(doc("C:\library\book.xml")/b:books,
+         xdmp:node-insert-child(doc("/book.xml")/b:books,
          $x),
          <result>"CREATED AND INSERTED"</result>
        )
@@ -89,15 +89,15 @@ function create-book:put(
             </response>,
         if(count(xdmp:validate($x, "type", xs:QName("sch:BookType"))//error:error) = 0)
         then(
-            if(xdmp:exists(doc("C:\library\book.xml")))
+            if(xdmp:exists(doc("/book.xml")))
             then(
                 xdmp:node-insert-child(
-                doc("C:\library\book.xml")/b:books,
+                doc("/book.xml")/b:books,
                 $x),
                 <result>"INSERTED"</result>
             )
             else(
-                xdmp:document-insert("C:\library\book.xml", 
+                xdmp:document-insert("/book.xml", 
                 $x),
             <result>"CREATED AND INSERTED"</result>
             )
