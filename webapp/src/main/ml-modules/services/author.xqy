@@ -5,11 +5,16 @@ module namespace author = "http://marklogic.com/rest-api/resource/author";
 declare namespace a = "http://www.demo.com/author";
 declare namespace p = "http://www.demo.com/person";
 
+import module namespace security = "http://marklogic.com/rest-api/resource/author-get-privilege" 
+at "/author-get-privilege.xqy";
+
 declare function author:get($context as map:map,
                             $params as map:map
                             ) as document-node()?{
     let $id := map:get($params, "id")
-    return document{
+    return (
+      security:security-check(xdmp:get-current-user(), $security:get-privilege),
+    document{
     xdmp:set-response-content-type("text/html"),
     <html>
       <head>
@@ -26,7 +31,7 @@ declare function author:get($context as map:map,
             <th>Date of Death</th>
           </tr>
           {
-            for $author in doc("C:\library\author.xml")//a:author[@id=$id]
+            for $author in doc("/author.xqy")//a:author[@id=11]
             return
               <tr>
                 <td>{data($author/@id)}</td>
@@ -40,4 +45,5 @@ declare function author:get($context as map:map,
       </body>
     </html>
     }
+    )
 };
