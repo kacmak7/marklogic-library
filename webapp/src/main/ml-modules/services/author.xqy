@@ -31,7 +31,7 @@ declare function author:get($context as map:map,
             <th>Date of Death</th>
           </tr>
           {
-            for $author in doc("/author.xqy")//a:author[@id=11]
+            for $author in doc("/author.xqy")//a:author[@id=$id]
             return
               <tr>
                 <td>{data($author/@id)}</td>
