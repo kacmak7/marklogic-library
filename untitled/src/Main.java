@@ -17,8 +17,6 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //return builder.toString();
-        //return i <= 1 ? builder.toString() : null;
         System.out.println(builder.toString());
         System.out.println(file.getName());
         System.out.println();
